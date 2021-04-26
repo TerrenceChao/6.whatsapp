@@ -1,0 +1,44 @@
+version: "3.8"
+services: 
+  server0:
+    build: 
+      context: ./app
+      args: 
+        - PORT=3000
+    ports:
+      - "3000:3000"
+  server1:
+    build: 
+      context: ./app
+      args: 
+        - PORT=3001
+    ports:
+      - "3001:3001"
+  server2:
+    build: 
+      context: ./app
+      args: 
+        - PORT=3002
+    ports:
+      - "3002:3002"
+  proxy:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - 9090:80
+      - 443:443
+    # depends_on: 
+    #   - server0
+    #   - server1
+    #   - server2
+
+    # image: nginx:1.14-alpine
+    # ports:
+    #   - 9090:80
+    #   - 443:443
+    # volumes:
+    #   - ./nginx/conf.d:/etc/nginx/conf.d
+    #   - ./nginx/html:/etc/nginx/html
+    #   - ./nginx/log:/var/log/nginx
+    #   - ./nginx/www:/var/www

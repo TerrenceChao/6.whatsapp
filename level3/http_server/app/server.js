@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const hashIP = require('./hashFunc').hashIP
-const parsePortFromCmd = require('../parsePortFromCmd')
+const parsePortFromCmd = require('./parsePortFromCmd')
 
 const port = parsePortFromCmd()
 
@@ -15,7 +15,10 @@ app.get('/sendMsg', (req, res) => {
   const domain = hashIP(clientId)
     .concat(`?clientId=${clientId}&wsServer=xxxx:${port}`)
   console.log(`App Server: xxxx:${port} redirect to ${domain}`)
-  res.redirect(301, domain)
+  // res.redirect(301, domain)
+  res.json({
+    domain
+  })
 })
 
 app.get('/receiveMsg', (req, res) => {
