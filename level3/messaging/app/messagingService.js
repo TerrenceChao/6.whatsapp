@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const hashIP = require('./hashFunc').hashIP
-const parsePortFromCmd = require('../parsePortFromCmd')
+const parsePortFromCmd = require('./parsePortFromCmd')
 
 const port = parsePortFromCmd()
 
