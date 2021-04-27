@@ -1,0 +1,43 @@
+version: "3.8"
+services: 
+  server0:
+    build: 
+      context: ./app
+      args: 
+        - PORT=4000
+    ports:
+      - "4000:4000"
+  server1:
+    build: 
+      context: ./app
+      args: 
+        - PORT=4001
+    ports:
+      - "4001:4001"
+  server2:
+    build: 
+      context: ./app
+      args: 
+        - PORT=4002
+    ports:
+      - "4002:4002"
+  server3:
+    build: 
+      context: ./app
+      args: 
+        - PORT=4003
+    ports:
+      - "4003:4003"
+  server4:
+    build: 
+      context: ./app
+      args: 
+        - PORT=4004
+    ports:
+      - "4004:4004"
+  proxy:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - 9090:80

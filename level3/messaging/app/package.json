@@ -1,0 +1,11 @@
+{
+  "name": "node-messaging-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "messagingService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
